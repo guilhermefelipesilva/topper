@@ -1,0 +1,1 @@
+bumpversion: https://github.com/peritus/bumpversion
