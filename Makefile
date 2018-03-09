@@ -9,3 +9,6 @@ install-production:
 
 run-dev:
 	python manage.py runserver
+
+# apply-patch:
+# 	bumpversion patch
