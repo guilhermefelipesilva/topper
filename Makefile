@@ -12,3 +12,9 @@ run-dev:
 
 apply-patch:
 	bumpversion patch
+
+apply-minor:
+	bumpversion minor
+
+apply-major:
+	bumpversion major
