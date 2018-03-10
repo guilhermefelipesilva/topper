@@ -10,6 +10,12 @@ install-production:
 run-dev:
 	python manage.py runserver
 
+run-staging:
+	export ENVIROMENT=staging && python manage.py runserver
+
+run-production:
+	export ENVIROMENT=production && python manage.py runserver
+
 apply-patch:
 	bumpversion patch
 

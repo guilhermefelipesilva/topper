@@ -3,7 +3,8 @@ import os
 import sys
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "topper.settings")
+    enviroment = os.environ.get('ENVIROMENT', 'development')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", f"topper.config.{enviroment}")
     try:
         from django.core.management import execute_from_command_line
     except ImportError:
