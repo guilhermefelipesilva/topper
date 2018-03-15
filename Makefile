@@ -17,7 +17,7 @@ run-production:
 	export ENVIROMENT=production && python manage.py runserver
 
 run-worker-dev:
-	export BROKER_URL="redis://localhost:6379/0" && celery -A tasks worker --loglevel=info
+	export BROKER_URL="redis://localhost:6379/0" && celery -A topper worker --loglevel=info
 
 run-redis:
 	docker start redis

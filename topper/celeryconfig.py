@@ -7,5 +7,3 @@ result_serializer = 'json'
 accept_content = ['json']
 timezone = 'America/Sao_Paulo'
 enable_utc = True
-
-include = ['tasks']
