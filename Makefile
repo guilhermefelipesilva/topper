@@ -7,6 +7,9 @@ install-staging:
 install-production:
 	pip install -r requirements/production.txt
 
+install-test:
+	pip install -r requirements/test.txt
+
 run-dev:
 	python manage.py runserver
 
