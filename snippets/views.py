@@ -1,3 +1,4 @@
+import logging
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
 from django.http import Http404
@@ -5,11 +6,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+logger = logging.getLogger(__name__)
+
 
 class SnippetList(APIView):
     """
     List all snippets, or create a new snippet.
     """
+
     def get(self, request, format=None):
         snippets = Snippet.objects.all()
         serializer = SnippetSerializer(snippets, many=True)
@@ -27,10 +31,12 @@ class SnippetDetail(APIView):
     """
     Retrieve, update or delete a snippet instance.
     """
+
     def get_object(self, pk):
         try:
             return Snippet.objects.get(pk=pk)
-        except Snippet.DoesNotExist:
+        except Snippet.DoesNotExist as ex:
+            logger.error(ex)
             raise Http404
 
     def get(self, request, pk, format=None):

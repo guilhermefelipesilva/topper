@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8*2qdg65+w0=l58+9blh_(^@e#n#=d82ijznwf(g(j!ypo73l1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -123,3 +123,31 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 VERSION = "0.0.1"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'custom': {
+            'format': '[%(levelname)s] %(asctime)s [%(module)s:%(funcName)s] %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'custom'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        'snippets': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        }
+    },
+}

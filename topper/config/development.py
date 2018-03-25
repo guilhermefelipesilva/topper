@@ -1,7 +1,7 @@
-from ..settings import * #noqa
+from ..settings import *  # noqa
 
 
-DEBUG = False
+DEBUG = True
 
 CELERY_BROKER_URL = os.environ.get('BROKER_URL', 'redis://localhost:6379/0')
 
