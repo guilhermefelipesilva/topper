@@ -31,12 +31,10 @@ class SnippetList(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user))
+        serializer.save(owner=self.request.user)
 
-    queryset=Snippet.objects.all()
-    serializer_class=SnippetSerializer
-
-
+    queryset = Snippet.objects.all()
+    serializer_class = SnippetSerializer
 
 
 class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -44,7 +42,7 @@ class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
     Retrieve, update or delete a snippet instance.
     """
 
-    permission_classes=(permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
-    queryset=Snippet.objects.all()
-    serializer_class=SnippetSerializer
+    queryset = Snippet.objects.all()
+    serializer_class = SnippetSerializer
